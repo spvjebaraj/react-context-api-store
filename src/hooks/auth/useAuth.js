@@ -67,15 +67,5 @@ export default function useAuth() {
     }
   };
 
-  const resetStore = useCallback(() => {
-    dispatch({ type: ACTIONS.SET_STORE_EMPTY });
-  }, [dispatch]);
-
-  useEffect(() => {
-    return () => {
-      resetStore();
-    };
-  }, [resetStore]);
-
-  return [authStore, { signIn, signUp, signOut, resetStore }];
+  return [authStore, { signIn, signUp, signOut }];
 }
